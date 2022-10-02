@@ -83,7 +83,7 @@ router.delete("/:id" , auth, async (req,res) => {
     try {
         const card = await Card.findOneAndRemove({_id: req.params.id})
         if(!card) return res.status(404).send("card was not found- delete")
-        res.status(200).send("card was deleted")
+        res.status(200).send("Card was deleted successfully")
     } catch (error) {
         res.status(400).send("error in deleting specific card")   
     }

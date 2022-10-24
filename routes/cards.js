@@ -41,7 +41,6 @@ router.post("/" , auth, async (req,res) => {
 router.get("/my-cards" , auth, async (req,res) =>{
     try {
         const myCards = await Card.find({user_id: req.payload._id})
-         if(myCards.length == 0) return res.status(404).send("No card for the connected user")
         res.status(200).send(myCards)
     } catch (error) {
         res.status(400).send("error in getting the cards")   
